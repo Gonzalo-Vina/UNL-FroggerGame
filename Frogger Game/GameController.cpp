@@ -5,9 +5,10 @@
 #include<cstdlib>
 #include <conio2.h>
 #include "GameController.h"
-#include "SceneManager.h"
 
 using namespace std;
+
+
 
 void GameController::gotoxy(int x, int y){
 	HANDLE hcon = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -17,6 +18,14 @@ void GameController::gotoxy(int x, int y){
 	SetConsoleCursorPosition(hcon, dwPos);
 }
 
-void GameController::StartGame(){
+void GameController::StartGame(bool play){
+	sceneManager.CreateBackground();
 	
+	while(play){
+		sceneManager.CleanScreen();
+		sceneManager.CreateLimits();
+		
+		gotoxy(0,0);
+		puts(sceneManager.plano[0]);
+	}
 }
