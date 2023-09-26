@@ -24,6 +24,7 @@ void GameController::StartGame(bool play){
 	while(play){
 		sceneManager.CleanScreen();
 		sceneManager.CreateLimits();
+		sceneManager.DrawModel();
 		
 		gotoxy(0,0);
 		puts(sceneManager.plano[0]);

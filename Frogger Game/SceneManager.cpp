@@ -40,3 +40,11 @@ void SceneManager::CleanScreen(){
 		}
 	}
 }
+
+void SceneManager::DrawModel(){
+	player->ChooseModel();
+	
+	for(int i = 0; i < 6; i++){
+		DrawChar(player->x+player->pass[player->c].posModel[i].x, AL[player->y]+player->pass[player->c].posModel[i].y, player->pass[player->c].model[i]);
+	}
+}
