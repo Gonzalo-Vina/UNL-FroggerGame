@@ -9,6 +9,7 @@ using namespace std;
 
 class Models{
 private:
+	
 	char modelsASCII[12][2][8]{
 		{
 			"+Û+    ",
@@ -29,6 +30,9 @@ private:
 public:
 	int x, y, c, m;
 	
+	float vy = 0.0f;
+	int dir = 0;
+	
 	dato pass[12];
 	
 	Models(int coordX, int coordY, int choiceModel, int m1){
@@ -39,4 +43,7 @@ public:
 	}
 	
 	void ChooseModel();
+	void Move(int &dir);
+	void WaitBetweenMove();
+	void SelectDirection(int &dir);
 };

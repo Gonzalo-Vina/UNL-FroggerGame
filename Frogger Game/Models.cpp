@@ -24,3 +24,33 @@ void Models::ChooseModel(){
 		}
 	}
 }
+void Models::Move(int &dir){
+	vy -= 1150.0f * 0.0416;
+	if(vy >= 752.0f)
+		SelectDirection(dir);
+}
+void Models::WaitBetweenMove(){
+	if(vy <= 600.0f){
+		vy = 800.0f;
+	}
+}
+void Models::SelectDirection(int &dir){
+	switch(dir){
+	case 1: 
+		y++;
+		dir = 0;
+		break;
+	case 2:
+		x += 2;
+		dir = 0;
+		break;
+	case 3:
+		y--;
+		dir = 0;
+		break;
+	case 4:
+		x -= 2;
+		dir = 0;
+		break;
+	}
+}

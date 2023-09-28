@@ -18,10 +18,32 @@ void GameController::gotoxy(int x, int y){
 	SetConsoleCursorPosition(hcon, dwPos);
 }
 
+void GameController::ControlFPS(){
+	finalT = clock();
+	acumulador += float(finalT-inicioT)/CLOCKS_PER_SEC;
+	inicioT = finalT;
+	
+	if(acumulador >= 0.2f) acumulador = 2.0f;
+	
+	while(acumulador>=dt){
+		sceneManager.player->MoveController();
+		
+		acumulador -= dt;
+	}
+}
+
 void GameController::StartGame(bool play){
 	sceneManager.CreateBackground();
 	
+	inicioT = clock();
+	
 	while(play){
+		if(GetKeyState(VK_ESCAPE)&0x8000){
+			play = false;
+		}
+		
+		ControlFPS();
+		
 		sceneManager.CleanScreen();
 		sceneManager.CreateLimits();
 		sceneManager.DrawModel();
