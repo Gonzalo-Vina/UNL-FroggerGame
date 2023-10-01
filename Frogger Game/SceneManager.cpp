@@ -45,6 +45,32 @@ void SceneManager::DrawModel(){
 	player->ChooseModel();
 	
 	for(int i = 0; i < 6; i++){
-		DrawChar(player->x+player->pass[player->c].posModel[i].x, AL[player->y]+player->pass[player->c].posModel[i].y, player->pass[player->c].model[i]);
+		DrawChar(player->x+player->pass[player->c].posModel[i].x, 
+				 AL[player->y]+player->pass[player->c].posModel[i].y, 
+				 player->pass[player->c].model[i]);
+	}
+}
+void SceneManager::DrawObstacles(int t, int u, int c){
+	obstacle->ChooseModel();
+	
+	for(int j = 0; j < t; j++){
+		for(int i = 0; i < NC[c]; i++){
+			DrawChar((obstacle->car[u][j].x)+obstacle->pass[c].posModel[i].x, 
+					(AL[obstacle->car[u][j].y])+obstacle->pass[c].posModel[i].y, 
+					obstacle->pass[c].model[i]);
+		}
+	}
+}
+void SceneManager::PositionObstacle(){
+	for(int j=0; j < 6; j++){
+		for(int i = 0; i < OL[j]; i++){
+			obstacle->car[j][i].x = rand()%6 + SBO[OL[j]-1][i];
+			obstacle->car[j][i].y = PY[j];
+		}
+	}
+}
+void SceneManager::PlaceObstacle(){ 
+	for(int i = 0; i < 6; i++){
+		DrawObstacles(OL[i],i, PO[i]);
 	}
 }

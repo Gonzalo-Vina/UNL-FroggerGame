@@ -4,6 +4,7 @@
 #include<stdlib.h>
 #include<cstdlib>
 #include <conio2.h>
+#pragma once
 
 using namespace std;
 
@@ -14,6 +15,30 @@ private:
 		{
 			"+€+    ",
 			"+ﬂ+    "	
+		},
+		{
+			"‹€€‹   ",
+			"©  ©   "
+		},
+		{
+			"‹€€€   ",
+			"©  ©   "	
+		},
+		{
+			"‹€‹‹   ",
+			"©  ©   "
+		},
+		{
+			"‹€‹€€€ ",
+			"©  © © "
+		},
+		{
+			"<‹     ",
+			"  ﬂ‹ﬂ  "	
+		},
+		{
+			">‹‹‹_  ",
+			" + +   "
 		},
 	};
 	
@@ -34,6 +59,7 @@ public:
 	int dir = 0;
 	
 	dato pass[12];
+	coord car[12][5];
 	
 	Models(int coordX, int coordY, int choiceModel, int m1){
 		x = coordX;

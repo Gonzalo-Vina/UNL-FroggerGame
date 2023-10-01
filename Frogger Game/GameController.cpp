@@ -33,9 +33,13 @@ void GameController::ControlFPS(){
 }
 
 void GameController::StartGame(bool play){
+	srand(static_cast <unsigned>(time(0)));
+	
 	sceneManager.CreateBackground();
 	
 	inicioT = clock();
+	
+	sceneManager.PositionObstacle();
 	
 	while(play){
 		if(GetKeyState(VK_ESCAPE)&0x8000){
@@ -46,6 +50,7 @@ void GameController::StartGame(bool play){
 		
 		sceneManager.CleanScreen();
 		sceneManager.CreateLimits();
+		sceneManager.PlaceObstacle();
 		sceneManager.DrawModel();
 		
 		gotoxy(0,0);

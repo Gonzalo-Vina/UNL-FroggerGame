@@ -9,7 +9,7 @@
 using namespace std;
 
 void Models::ChooseModel(){
-	for(int t=0; t<1; t++){
+	for(int t=0; t<8; t++){
 		int q=0;
 		int y;
 		for(int i=0; i<2; i++){
