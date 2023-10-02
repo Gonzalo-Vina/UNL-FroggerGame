@@ -74,3 +74,58 @@ void SceneManager::PlaceObstacle(){
 		DrawObstacles(OL[i],i, PO[i]);
 	}
 }
+void SceneManager::SetSpeeds(){
+	vel1++;
+	if(vel1>400)
+		vel1=0;
+	
+	vel2++;
+	if(vel2>300)
+		vel2=0;
+	
+	vel3++;
+	if(vel3>200)
+		vel3=0;
+}
+void SceneManager::MoveObstacles(){
+	SetSpeeds();
+	
+	if(vel1 == 0){
+		for(int i = 0; i < OL[0]; i++){
+			obstacle->car[0][i].x++;
+			if(obstacle->car[0][i].x > 45)
+				obstacle->car[0][i].x = 0;
+		}
+		for(int i = 0; i < OL[3]; i++){
+			obstacle->car[3][i].x--;
+			if(obstacle->car[3][i].x < 0)
+				obstacle->car[3][i].x = 45;
+		}
+	}
+	
+	if(vel2 == 0){
+		for(int i = 0; i < OL[2]; i++){
+			obstacle->car[2][i].x++;
+			if(obstacle->car[2][i].x > 45)
+				obstacle->car[2][i].x = 0;
+		}
+		for(int i = 0; i < OL[5]; i++){
+			obstacle->car[5][i].x--;
+			if(obstacle->car[5][i].x < 0)
+				obstacle->car[5][i].x = 45;
+		}
+	}
+	
+	if(vel3 == 0){
+		for(int i = 0; i < OL[1]; i++){
+			obstacle->car[1][i].x--;
+			if(obstacle->car[1][i].x < 0)
+				obstacle->car[1][i].x = 45;
+		}
+		for(int i = 0; i < OL[4]; i++){
+			obstacle->car[4][i].x++;
+			if(obstacle->car[4][i].x > 45)
+				obstacle->car[4][i].x = 0;
+		}
+	}
+}

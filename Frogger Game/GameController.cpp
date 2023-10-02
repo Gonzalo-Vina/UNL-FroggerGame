@@ -52,6 +52,7 @@ void GameController::StartGame(bool play){
 		sceneManager.CreateLimits();
 		sceneManager.PlaceObstacle();
 		sceneManager.DrawModel();
+		sceneManager.MoveObstacles();
 		
 		gotoxy(0,0);
 		puts(sceneManager.plano[0]);

@@ -11,6 +11,8 @@ using namespace std;
 
 class SceneManager{
 private:
+	int vel1=0, vel2=0, vel3=0;
+	
 	int AL[9] = {0, 3, 6, 9, 12, 15, 18, 21, 24}; //Available Lines
 	int NC[12] = {6,6,6,6,9,5,7,14,10,6,6,6}; //Numbers Characters
 	int OL [6] = {3,3,4,3,2,3}; //Obstacles in Lines
@@ -39,4 +41,6 @@ public:
 	void DrawObstacles(int t, int u, int c);
 	void PositionObstacle();
 	void PlaceObstacle();
+	void SetSpeeds();
+	void MoveObstacles();
 };
