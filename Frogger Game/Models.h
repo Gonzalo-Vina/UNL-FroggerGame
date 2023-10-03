@@ -47,12 +47,14 @@ private:
 		int y;
 	};
 	
+	
+	
+public:
 	struct dato{
 		coord posModel[14];
 		char model[14];
 	};
 	
-public:
 	int x, y, c, m;
 	
 	float vy = 0.0f;

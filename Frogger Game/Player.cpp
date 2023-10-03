@@ -28,3 +28,16 @@ void Player::MoveController(){
 	
 	this->Move(this->dir);
 }
+int Player::CheckCollision(int l, int OL[6], int NC[12]){
+	for(int t=0; t<OL[l-1];t++){
+		for(int i=0; i<NC[0]; i++){
+			for(int j=0; j<NC[l]; j++){
+				if(colliderPlayer[0].posModel[i].x == obstacle->colliderObstacles[l-1][t].posModel[j].x &&
+					colliderPlayer[0].posModel[i].y == obstacle->colliderObstacles[l-1][t].posModel[j].y)
+				{
+					return 1;
+				}
+			}
+		}
+	}	
+}

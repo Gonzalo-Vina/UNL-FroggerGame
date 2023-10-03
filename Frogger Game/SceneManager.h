@@ -43,4 +43,6 @@ public:
 	void PlaceObstacle();
 	void SetSpeeds();
 	void MoveObstacles();
+	
+	void CheckCollisions();
 };

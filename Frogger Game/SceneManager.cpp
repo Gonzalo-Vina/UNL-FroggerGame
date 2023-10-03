@@ -48,6 +48,9 @@ void SceneManager::DrawModel(){
 		DrawChar(player->x+player->pass[player->c].posModel[i].x, 
 				 AL[player->y]+player->pass[player->c].posModel[i].y, 
 				 player->pass[player->c].model[i]);
+		
+		player->colliderPlayer[0].posModel[i].x = (player->x+player->pass[player->c].posModel[i].x);
+		player->colliderPlayer[0].posModel[i].y = (AL[player->y]+player->pass[player->c].posModel[i].y);
 	}
 }
 void SceneManager::DrawObstacles(int t, int u, int c){
@@ -58,6 +61,9 @@ void SceneManager::DrawObstacles(int t, int u, int c){
 			DrawChar((obstacle->car[u][j].x)+obstacle->pass[c].posModel[i].x, 
 					(AL[obstacle->car[u][j].y])+obstacle->pass[c].posModel[i].y, 
 					obstacle->pass[c].model[i]);
+			
+			player->obstacle->colliderObstacles[u][j].posModel[i].x = ((obstacle->car[u][j].x)+obstacle->pass[c].posModel[i].x);
+			player->obstacle->colliderObstacles[u][j].posModel[i].y = ((AL[obstacle->car[u][j].y])+obstacle->pass[c].posModel[i].y);
 		}
 	}
 }
@@ -127,5 +133,41 @@ void SceneManager::MoveObstacles(){
 			if(obstacle->car[4][i].x > 45)
 				obstacle->car[4][i].x = 0;
 		}
+	}
+}
+void SceneManager::CheckCollisions(){
+	switch(player->y){
+	case 0:
+		break;
+	case 1:
+		if(player->CheckCollision(player->y, OL, NC) == 1){
+			gotoxy(65,10); cout << "MUERTE";
+//			gotoxy(65,12); cout << player->colliderPlayer[0].posModel[0].x ;
+//			gotoxy(65,13); cout << player->colliderPlayer[0].posModel[0].y;
+//			gotoxy(65,15); cout << player->obstacle->colliderObstacles[0][0].posModel[0].x;
+//			gotoxy(65,16); cout << player->obstacle->colliderObstacles[0][0].posModel[0].y;
+		}
+		break;
+	case 2:
+		if(player->CheckCollision(player->y, OL, NC) == 1){
+			gotoxy(65,10); cout << "MUERTE";
+		}
+		
+		break;
+	case 3:
+		if(player->CheckCollision(player->y, OL, NC) == 1){
+			gotoxy(65,10); cout << "MUERTE";
+		}
+		
+		break;
+	case 5:
+		
+		break;
+	case 6:
+		
+		break;
+	case 7:
+		
+		break;
 	}
 }
