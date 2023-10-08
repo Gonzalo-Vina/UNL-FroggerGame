@@ -8,6 +8,9 @@
 
 using namespace std;
 
+/* Me gustaria declararle mi amor...
+   pero solo sé declarar variables... */
+
 GameController gameController;
 
 int main (int argc, char *argv[]) {

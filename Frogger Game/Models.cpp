@@ -9,7 +9,7 @@
 using namespace std;
 
 void Models::ChooseModel(){
-	for(int t=0; t<8; t++){
+	for(int t=0; t<12; t++){
 		int q=0;
 		int y;
 		for(int i=0; i<2; i++){
@@ -39,6 +39,7 @@ void Models::SelectDirection(int &dir){
 	case 1: 
 		y++;
 		dir = 0;
+		ac=1;
 		break;
 	case 2:
 		x += 2;
@@ -47,6 +48,7 @@ void Models::SelectDirection(int &dir){
 	case 3:
 		y--;
 		dir = 0;
+		ac=1;
 		break;
 	case 4:
 		x -= 2;

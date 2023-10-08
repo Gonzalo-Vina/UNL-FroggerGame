@@ -17,7 +17,7 @@ private:
 	int NC[12] = {6,6,6,6,9,5,7,14,10,6,6,6}; //Numbers Characters
 	int OL [6] = {3,3,4,3,2,3}; //Obstacles in Lines
 	int PY [6] = {1,2,3,5,6,7}; //Position Y
-	int PO [6] = {1,2,3,4,3,2};
+	int PO [6] = {1,2,3,7,8,7};
 	
 	int SBO[4][4] = {{16,1,1,1}, //Space between obstacles
 					 {6,20,1,1},

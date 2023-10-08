@@ -11,7 +11,7 @@ using namespace std;
 
 class Player : public Models{
 private:
-	
+	int gu1, gu2, gu3, gu4;
 	
 public:
 	Obstacles *obstacle = new Obstacles(0,0,0,0);
@@ -23,5 +23,7 @@ public:
 	}
 	void MoveController();
 	
-	int CheckCollision(int l, int OL[6], int NC[12]);
+	int CheckCollision(int l, int OL[6], int NC[12], Obstacles *positionObstacles);
+	
+	void MoveWithTrunks(int l, Obstacles *positionObstacles);
 };

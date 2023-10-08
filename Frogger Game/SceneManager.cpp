@@ -99,26 +99,26 @@ void SceneManager::MoveObstacles(){
 	if(vel1 == 0){
 		for(int i = 0; i < OL[0]; i++){
 			obstacle->car[0][i].x++;
-			if(obstacle->car[0][i].x > 45)
+			if(obstacle->car[0][i].x > 34)
 				obstacle->car[0][i].x = 0;
 		}
 		for(int i = 0; i < OL[3]; i++){
 			obstacle->car[3][i].x--;
 			if(obstacle->car[3][i].x < 0)
-				obstacle->car[3][i].x = 45;
+				obstacle->car[3][i].x = 34;
 		}
 	}
 	
 	if(vel2 == 0){
 		for(int i = 0; i < OL[2]; i++){
 			obstacle->car[2][i].x++;
-			if(obstacle->car[2][i].x > 45)
+			if(obstacle->car[2][i].x > 34)
 				obstacle->car[2][i].x = 0;
 		}
 		for(int i = 0; i < OL[5]; i++){
 			obstacle->car[5][i].x--;
 			if(obstacle->car[5][i].x < 0)
-				obstacle->car[5][i].x = 45;
+				obstacle->car[5][i].x = 34;
 		}
 	}
 	
@@ -126,11 +126,11 @@ void SceneManager::MoveObstacles(){
 		for(int i = 0; i < OL[1]; i++){
 			obstacle->car[1][i].x--;
 			if(obstacle->car[1][i].x < 0)
-				obstacle->car[1][i].x = 45;
+				obstacle->car[1][i].x = 34;
 		}
 		for(int i = 0; i < OL[4]; i++){
 			obstacle->car[4][i].x++;
-			if(obstacle->car[4][i].x > 45)
+			if(obstacle->car[4][i].x > 34)
 				obstacle->car[4][i].x = 0;
 		}
 	}
@@ -140,7 +140,7 @@ void SceneManager::CheckCollisions(){
 	case 0:
 		break;
 	case 1:
-		if(player->CheckCollision(player->y, OL, NC) == 1){
+		if(player->CheckCollision(player->y, OL, NC, obstacle) == 1){
 			gotoxy(65,10); cout << "MUERTE";
 //			gotoxy(65,12); cout << player->colliderPlayer[0].posModel[0].x ;
 //			gotoxy(65,13); cout << player->colliderPlayer[0].posModel[0].y;
@@ -149,25 +149,31 @@ void SceneManager::CheckCollisions(){
 		}
 		break;
 	case 2:
-		if(player->CheckCollision(player->y, OL, NC) == 1){
+		if(player->CheckCollision(player->y, OL, NC, obstacle) == 1){
 			gotoxy(65,10); cout << "MUERTE";
 		}
 		
 		break;
 	case 3:
-		if(player->CheckCollision(player->y, OL, NC) == 1){
+		if(player->CheckCollision(player->y, OL, NC, obstacle) == 1){
 			gotoxy(65,10); cout << "MUERTE";
 		}
 		
 		break;
 	case 5:
-		
+		if(player->CheckCollision(player->y-1, OL, NC, obstacle) == 1){
+			player->MoveWithTrunks(1, obstacle);
+		}
 		break;
 	case 6:
-		
+		if(player->CheckCollision(player->y-1, OL, NC, obstacle) == 1){
+			player->MoveWithTrunks(0, obstacle);
+		}
 		break;
 	case 7:
-		
+		if(player->CheckCollision(player->y-1, OL, NC, obstacle) == 1){
+			player->MoveWithTrunks(1, obstacle);
+		}
 		break;
 	}
 }
