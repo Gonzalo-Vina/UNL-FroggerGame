@@ -48,6 +48,19 @@ int Player::CheckCollision(int l, int OL[6], int NC[12], Obstacles *positionObst
 		}
 	}	
 }
+int Player::CheckCollisionWithGoal(int OL[6], int NC[12], Obstacles *positionObstacles){
+	for(int t=0; t<3;t++){
+		for(int i=0; i<NC[0]; i++){
+			for(int j=0; j<NC[9]; j++){
+				if(colliderPlayer[0].posModel[i].x == obstacle->colliderObstacles[10][t].posModel[j].x &&
+					colliderPlayer[0].posModel[i].y == obstacle->colliderObstacles[10][t].posModel[j].y)
+				{
+					return 1;
+				}
+			}
+		}
+	}
+}
 void Player::MoveWithTrunks(int l, Obstacles *positionObstacles){
 	if(vy <= 600){
 		switch(l){

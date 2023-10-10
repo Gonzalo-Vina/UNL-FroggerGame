@@ -80,6 +80,15 @@ void SceneManager::PlaceObstacle(){
 		DrawObstacles(OL[i],i, PO[i]);
 	}
 }
+void SceneManager::PositionGoals(){
+	for(int i = 0; i < 3; i++){
+		obstacle->car[10][i].y = 8;
+		obstacle->car[10][i].x = GM[i];
+	}
+}
+void SceneManager::PlaceGoals(){
+	DrawObstacles(3, 10, 11);
+}
 void SceneManager::SetSpeeds(){
 	vel1++;
 	if(vel1>400)
@@ -173,6 +182,14 @@ void SceneManager::CheckCollisions(){
 	case 7:
 		if(player->CheckCollision(player->y-1, OL, NC, obstacle) == 1){
 			player->MoveWithTrunks(1, obstacle);
+		}
+		break;
+	case 8:
+		if(player->CheckCollisionWithGoal(OL, NC, obstacle) == 1){
+			player->y = 0;
+			player->x = 17;
+		} else{
+			gotoxy(65,1); cout << "MUERTE";
 		}
 		break;
 	}

@@ -18,6 +18,7 @@ private:
 	int OL [6] = {3,3,4,3,2,3}; //Obstacles in Lines
 	int PY [6] = {1,2,3,5,6,7}; //Position Y
 	int PO [6] = {1,2,3,7,8,7};
+	int GM[3] = {7,17,27};
 	
 	int SBO[4][4] = {{16,1,1,1}, //Space between obstacles
 					 {6,20,1,1},
@@ -41,6 +42,8 @@ public:
 	void DrawObstacles(int t, int u, int c);
 	void PositionObstacle();
 	void PlaceObstacle();
+	void PositionGoals();
+	void PlaceGoals();
 	void SetSpeeds();
 	void MoveObstacles();
 	

@@ -40,6 +40,7 @@ void GameController::StartGame(bool play){
 	inicioT = clock();
 	
 	sceneManager.PositionObstacle();
+	sceneManager.PositionGoals();
 	
 	while(play){
 		if(GetKeyState(VK_ESCAPE)&0x8000){
@@ -51,6 +52,7 @@ void GameController::StartGame(bool play){
 		sceneManager.CleanScreen();
 		sceneManager.CreateLimits();
 		sceneManager.PlaceObstacle();
+		sceneManager.PlaceGoals();
 		sceneManager.DrawModel();
 		sceneManager.MoveObstacles();
 		sceneManager.CheckCollisions();
