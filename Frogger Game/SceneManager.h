@@ -47,5 +47,5 @@ public:
 	void SetSpeeds();
 	void MoveObstacles();
 	
-	void CheckCollisions();
+	void CheckCollisions(int &life, int &goal);
 };

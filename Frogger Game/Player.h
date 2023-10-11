@@ -27,4 +27,6 @@ public:
 	int CheckCollisionWithGoal(int OL[6], int NC[12], Obstacles *positionObstacles);
 	
 	void MoveWithTrunks(int l, Obstacles *positionObstacles);
+	
+	void ResetPosition();
 };

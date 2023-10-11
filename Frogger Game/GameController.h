@@ -19,10 +19,16 @@ private:
 	clock_t inicioT;
 	clock_t finalT;
 	
+	int life = 5;
+	int goals = 0;
+	
 public:
 	bool isPlay = true;
 	
 	void gotoxy(int x, int y);
 	void ControlFPS();
+	void UI_Controller();
+	void UI_ScoresViewer();
+	void WinOrLose(bool &continuePlaying);
 	void StartGame(bool play);
 };

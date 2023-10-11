@@ -144,52 +144,61 @@ void SceneManager::MoveObstacles(){
 		}
 	}
 }
-void SceneManager::CheckCollisions(){
+void SceneManager::CheckCollisions(int &life, int &goal){
 	switch(player->y){
 	case 0:
 		break;
 	case 1:
 		if(player->CheckCollision(player->y, OL, NC, obstacle) == 1){
-			gotoxy(65,10); cout << "MUERTE";
-//			gotoxy(65,12); cout << player->colliderPlayer[0].posModel[0].x ;
-//			gotoxy(65,13); cout << player->colliderPlayer[0].posModel[0].y;
-//			gotoxy(65,15); cout << player->obstacle->colliderObstacles[0][0].posModel[0].x;
-//			gotoxy(65,16); cout << player->obstacle->colliderObstacles[0][0].posModel[0].y;
+			player->ResetPosition();
+			life--;
 		}
 		break;
 	case 2:
 		if(player->CheckCollision(player->y, OL, NC, obstacle) == 1){
-			gotoxy(65,10); cout << "MUERTE";
+			player->ResetPosition();
+			life--;
 		}
 		
 		break;
 	case 3:
 		if(player->CheckCollision(player->y, OL, NC, obstacle) == 1){
-			gotoxy(65,10); cout << "MUERTE";
+			player->ResetPosition();
+			life--;
 		}
 		
 		break;
 	case 5:
 		if(player->CheckCollision(player->y-1, OL, NC, obstacle) == 1){
 			player->MoveWithTrunks(1, obstacle);
+		} else{
+			player->ResetPosition();
+			life--;
 		}
 		break;
 	case 6:
 		if(player->CheckCollision(player->y-1, OL, NC, obstacle) == 1){
 			player->MoveWithTrunks(0, obstacle);
+		} else{
+			player->ResetPosition();
+			life--;
 		}
 		break;
 	case 7:
 		if(player->CheckCollision(player->y-1, OL, NC, obstacle) == 1){
 			player->MoveWithTrunks(1, obstacle);
+		} else{
+			player->ResetPosition();
+			life--;
 		}
 		break;
 	case 8:
 		if(player->CheckCollisionWithGoal(OL, NC, obstacle) == 1){
-			player->y = 0;
-			player->x = 17;
+			player->ResetPosition();
+			goal++;
 		} else{
-			gotoxy(65,1); cout << "MUERTE";
+			player->ResetPosition();
+			life--;
 		}
 		break;
 	}

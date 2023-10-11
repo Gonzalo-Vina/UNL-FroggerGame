@@ -87,3 +87,7 @@ void Player::MoveWithTrunks(int l, Obstacles *positionObstacles){
 		}
 	}
 }
+void Player::ResetPosition(){
+	this->y = 0;
+	this->x = 17;
+}
