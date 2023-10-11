@@ -52,11 +52,13 @@ void GameController::WinOrLose(bool &continuePlaying){
 	if(life==0){
 		continuePlaying = false;
 		gotoxy(55, 23); cout << "|  PERDISTE  |";
-		gotoxy(55, 24); system("pause");
+		gotoxy(50, 25); system("pause");
 	}
 	
 	if(goals == 3){
-		//GANASTE
+		continuePlaying = false;
+		gotoxy(55, 23); cout << "|  GANASTE  |";
+		gotoxy(55, 24); system("pause");
 	}
 }
 void GameController::UI_ScoresViewer(){

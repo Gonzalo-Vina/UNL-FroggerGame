@@ -91,15 +91,15 @@ void SceneManager::PlaceGoals(){
 }
 void SceneManager::SetSpeeds(){
 	vel1++;
-	if(vel1>400)
+	if(vel1>500)
 		vel1=0;
 	
 	vel2++;
-	if(vel2>300)
+	if(vel2>450)
 		vel2=0;
 	
 	vel3++;
-	if(vel3>200)
+	if(vel3>400)
 		vel3=0;
 }
 void SceneManager::MoveObstacles(){

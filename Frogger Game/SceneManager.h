@@ -15,7 +15,7 @@ private:
 	
 	int AL[9] = {0, 3, 6, 9, 12, 15, 18, 21, 24}; //Available Lines
 	int NC[12] = {6,6,6,6,9,5,7,14,10,6,6,6}; //Numbers Characters
-	int OL [6] = {3,3,4,3,2,3}; //Obstacles in Lines
+	int OL [6] = {3,2,3,3,2,3}; //Obstacles in Lines
 	int PY [6] = {1,2,3,5,6,7}; //Position Y
 	int PO [6] = {1,2,3,7,8,7};
 	int GM[3] = {7,17,27};
